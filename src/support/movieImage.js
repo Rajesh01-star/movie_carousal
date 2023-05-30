@@ -1,18 +1,17 @@
 import { config } from "./config.js";
+
 const movieImage = (details) => {
   const apiKey = config.image_api_key;
 
   const fetchPromises = details.map((eachMovie) => {
-    // const movieName = eachMovie.name;
-    const apiUrl = `http://www.omdbapi.com/?t=${encodeURIComponent(
-      eachMovie.name
-    )}&apikey=${apiKey}`;
+    const movieName = encodeURIComponent(eachMovie.name);
+    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieName}`;
 
     return fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        if (data.Response === "True") {
-          const posterUrl = data.Poster;
+        if (data.results && data.results.length > 0) {
+          const posterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
           eachMovie.posterUrl = posterUrl;
           return eachMovie;
         } else {
