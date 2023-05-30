@@ -1,9 +1,5 @@
 # Getting Started with Create React App
 
-## hello there I updated my terminal
-
-## hello second time
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
