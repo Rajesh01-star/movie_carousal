@@ -1,0 +1,13 @@
+.slideTrack {
+  animation: scroll 35s linear infinite;
+  width: 480vw;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-380vw);
+  }
+}
